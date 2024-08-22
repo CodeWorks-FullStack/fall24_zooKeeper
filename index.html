@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoo Keeper</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://em-content.zobj.net/source/apple/391/orangutan_1f9a7.png">
+</head>
+
+<body oncontextmenu="rightClick()" data-bs-theme="dark">
+  <header class="container-fluid">
+    <nav class="row bg-success justify-content-center">
+      <div class="col-4 text-center fs-4 text-light fw-bold p-2">
+        🦒 Zoo Keeper 🦧
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid">
+
+
+    <section class="row">
+
+      <div id="Jerry" class="col-4">
+        <div class="pen">
+          <marquee behavior="alternate" direction="up" scrollamount="3">
+            <marquee behavior="alternate" direction="" scrollamount="2">
+              <span oncontextmenu="rightClick()" onclick="feedAnimal('Jerry')" class="animal">🦒</span>
+            </marquee>
+          </marquee>
+        </div>
+        <div class="stats">Jerry | 100 | 😊</div>
+        <button onclick="enrichAnimal('Jerry')" class="btn btn-success w-100">Buy 🌴</button>
+      </div>
+
+      <div id="Slappy" class="col-4">
+        <div class="pen">
+          <marquee behavior="alternate" direction="up" scrollamount="2">
+            <marquee behavior="alternate" direction="" scrollamount="3">
+              <span onclick="feedAnimal('Slappy')" class="animal">🦭</span>
+            </marquee>
+          </marquee>
+        </div>
+        <div class="stats">Slappy | 100 | 😊</div>
+        <button onclick="enrichAnimal('Slappy')" class="btn btn-success w-100">Buy 🏐</button>
+      </div>
+
+      <div id="Reginald" class="col-4">
+        <div class="pen">
+          <marquee behavior="alternate" direction="up" scrollamount="3">
+            <marquee behavior="alternate" direction="" scrollamount="4">
+              <span onclick="feedAnimal('Reginald')" class="animal">🐅</span>
+            </marquee>
+          </marquee>
+        </div>
+        <div class="stats">Reginald | 100 | 😊</div>
+        <button onclick="enrichAnimal('Reginald')" class="btn btn-success w-100">Buy 🥩</button>
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+  <footer class="container-fluid bg-black">
+    <div class="row fs-4">
+      <!-- SECTION bank -->
+      <div class="col-6 text-end">
+        <span>🏦</span><i class="mdi mdi-currency-usd"></i> <span id="bank" class=" fw-bold text-success"></span>
+      </div>
+      <div class="col-6">
+        <span></span><i class="mdi mdi-cash-clock"></i><span id="paycheck"></span>
+      </div>
+    </div>
+  </footer>
+
+  <span id="target"></span>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+nav {
+  font-family: 'Georgia';
+}
+
+.pen {
+  aspect-ratio: 1/1;
+  background-color: #3c7000;
+  background-image: url("https://www.transparenttextures.com/patterns/pool-table.png");
+  border: 4px rgb(214, 208, 208) dashed;
+  box-shadow: inset 0px -10px 12px rgba(0, 0, 0, 0.363);
+}
+
+marquee {
+  height: 100%;
+}
+
+.stats {
+  text-align: center;
+  color: white;
+  background-color: var(--bs-dark);
+}
+
+.animal {
+  font-size: 25px;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.479);
+  user-select: none;
+  cursor: grab;
+}
+
+.animal:active {
+  cursor: grabbing;
+}
+
+.enriched {
+  filter: brightness(2) hue-rotate(45deg);
+}
+
+.perished {
+  transition: all .2s ease;
+  display: inline-block;
+  text-shadow: 0px -3px 3px rgba(0, 0, 0, 0.479);
+  transform: rotate(180deg);
+}
+
+#target {
+  position: fixed;
+  /* opacity: 0; */
+  pointer-events: none;
+}
+
+.disappear {
+  opacity: 1;
+  animation: disappear .5s ease forwards;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
