@@ -31,6 +31,9 @@ let gameOver = false
 
 function animalsHunger() {
   // console.log('😋🍝');
+  // loop over the animals
+  // animal is ONE animal from the zooAnimals array
+  // perform the same actions FOR EACH animal
   zooAnimals.forEach((animal) => {
     if (animal.enrichment == true) {
       animal.hunger -= 1
@@ -46,6 +49,8 @@ function animalsHunger() {
 
 function drawAnimalsStats() {
   // updateAnimalsStatus()
+  // NOTE iterate through the animals. Use their name to select an element off a page.
+  // we can used that element to draw the animals data back into.
   zooAnimals.forEach((animal) => {
     let animalElm = document.getElementById(animal.name)
     // console.log(document, animalElm);
@@ -69,6 +74,9 @@ function drawAnimalsStats() {
   })
 }
 
+
+// NOTE this functions takes in an animal name, passed from the button click in the HTML
+//  animalName will = 'Jerry' or 'Splappy' or 'Reginald'
 function feedAnimal(animalName) {
   console.log('🍗', animalName);
   let animalToFeed = zooAnimals.find((animal) => animal.name == animalName)
@@ -82,9 +90,13 @@ function feedAnimal(animalName) {
   }
 }
 
+// NOTE this functions takes in an animal name, passed from the button click in the HTML
+//  animalName will = 'Jerry' or 'Splappy' or 'Reginald'
 function enrichAnimal(animalName) {
   if (bank >= 50) {
     bank -= 50
+    // NOTE to read this line in more plain english
+    // I want a ⬇️ = look through zooAnimals, find an animal, where (=>) their name is equal (==) to 'Jerry' ('Jerry') coming from the button press in the html
     let animalToEnrich = zooAnimals.find((animal) => animal.name == animalName)
     console.log('🥂', animalToEnrich);
     animalToEnrich.enrichment = true
@@ -113,11 +125,13 @@ function updateAnimalsStatus() {
 
 function getPaid() {
   // zooAnimals.forEach((animal) => bank += 10)
-  bank += calculatePaycheck()
+  bank += calculatePaycheck() // STUB get the magic number
   console.log('💰', bank);
   drawBank()
 }
 
+//NOTE This adds up how much money you will make, and RETURNS it to the caller.
+// that means this function doesn't modify anything, it just gives us a magic number we can use else where
 function calculatePaycheck() {
   let paycheck = 0
   zooAnimals.forEach((animal) => {
@@ -144,7 +158,7 @@ function drawBank() {
 
 function drawPaycheck() {
   const paycheckElm = document.getElementById('paycheck')
-  let paycheck = calculatePaycheck()
+  let paycheck = calculatePaycheck() // STUB get the magic number
   paycheckElm.innerText = paycheck.toString()
 }
 
@@ -152,21 +166,22 @@ drawBank()
 
 function checkForGameOver() {
   if (gameOver) return// if the game is already over, just leave this function
+  // Create a 'flag' assuming they are all dead
   let dead = true
   zooAnimals.forEach((animal) => {
-    if (animal.status != '😵') { dead = false }
+    if (animal.status != '😵') { dead = false } // if one is not, flip flag to false
   })
   console.log('all dead:', dead);
-  if (dead) {
+  if (dead) { // if the flag was never flipped, the game is over
     gameOver = true
+    // NOTE setTimeout, delays the running of the instructions by a delay in milliseconds
     setTimeout(() => {
       alert("All the animals are dead, you will never financially recover")
     }, 50)
   }
 }
 
-
-
+// NOTE setInterval takes in 'instructions', and performs those instructions with a delay of milliseconds between each call.
 // setInterval(() => console.log('hellow'), 1000)
 setInterval(animalsHunger, 450)
 
